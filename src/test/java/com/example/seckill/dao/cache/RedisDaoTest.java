@@ -20,15 +20,22 @@ class RedisDaoTest{
     @Test
     public void testSeckill() throws Exception{
         long id = 2L;
-        Seckill seckill = redisDao.getSeckill("seckill:",id);
+        Seckill seckill = redisDao.getSeckill("seckill:",id, Seckill.class);
         if(seckill==null){
             seckill = seckillDao.queryById(id);
             if(seckill!=null){
-                String result = redisDao.putSeckill("seckill:",seckill);
+                String result = redisDao.putSeckill("seckill:",seckill.getSeckillId(),seckill);
                 System.out.println(result);
-                seckill = redisDao.getSeckill("seckill:",id);
+                seckill = redisDao.getSeckill("seckill:",id, Seckill.class);
                 System.out.println(seckill);
             }
         }
+    }
+    @Test
+    public void testSeckill1() throws Exception{
+        long id = 2L;
+        redisDao.putSeckill("seckill:", id, 20);
+        Integer stock = redisDao.getSeckill("seckill:",id, Integer.class);
+        System.out.println(stock);
     }
 }

@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -45,13 +46,13 @@ public class SeckillServiceImpl implements SeckillService {
     @Override
     public Exposer exposeSeckillUrl(long seckillId) {
         // 优化点：缓存优化：超时的基础上维护一致性，使用redis缓存热点商品
-        Seckill seckill = redisDao.getSeckill("seckill:", seckillId);
+        Seckill seckill = redisDao.getSeckill("seckill:", seckillId, Seckill.class);
         if(seckill==null) {
             seckill = seckillDao.queryById(seckillId);
             if(seckill==null){
                 return new Exposer(false,seckillId);
             }else{
-                redisDao.putSeckill("seckill:", seckill);
+                redisDao.putSeckill("seckill:", seckill.getSeckillId(), seckill);
             }
         }
         Date startTime = seckill.getStartTime();
@@ -65,10 +66,9 @@ public class SeckillServiceImpl implements SeckillService {
     }
 
     private String getMD5(long seckillId){
-        String slat = "adfnadjifngdg";
+        String slat = "abcdef";
         String base = seckillId+"/"+ slat;
-        String md5 = DigestUtils.md5DigestAsHex(base.getBytes());
-        return md5;
+        return DigestUtils.md5DigestAsHex(base.getBytes());
     }
     @Override
     public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException {
@@ -79,7 +79,8 @@ public class SeckillServiceImpl implements SeckillService {
         Date nowTime = new Date();
         try {
             // 先根据是否插入判断是否重复秒杀，再update，减少行级锁持有时间
-            int insertCount = successKilledDao.insertSuccesskilled(seckillId, findById(seckillId).getCostPrice(), userPhone);
+            BigDecimal costPrice = findById(seckillId).getCostPrice();
+            int insertCount = successKilledDao.insertSuccesskilled(seckillId, costPrice, userPhone);
             if(insertCount<=0){
                 throw new RepeatKillException("seckill is repeated");
             }else{
@@ -89,6 +90,7 @@ public class SeckillServiceImpl implements SeckillService {
                     throw new SeckillCloseException("seckill is closed");
                 }else{
                     SeckillSuccess seckillSuccess = successKilledDao.querySeckillSuccessById(seckillId, userPhone);
+                    redisDao.putSeckill("successSeckill:"+userPhone+":",seckillId,costPrice);
                     return new SeckillExecution(seckillId,SeckillStatEnum.SUCCESS,seckillSuccess);
                     }
                 }

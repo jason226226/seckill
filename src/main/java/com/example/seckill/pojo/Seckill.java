@@ -14,10 +14,9 @@ public class Seckill {
 
     private long seckillId;
     private String title;
-    private String image;
     private BigDecimal price;
     private BigDecimal costPrice;
-    private int stockCount;
+    private Integer stockCount;
     private Date startTime;
     private Date endTime;
     private Date createTime;

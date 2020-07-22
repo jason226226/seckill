@@ -2,6 +2,10 @@ package com.example.seckill.service;
 
 import com.example.seckill.dto.Exposer;
 import com.example.seckill.dto.SeckillExecution;
+import com.example.seckill.dto.SeckillResult;
+import com.example.seckill.exception.RepeatKillException;
+import com.example.seckill.exception.SeckillCloseException;
+import com.example.seckill.exception.SeckillException;
 import com.example.seckill.pojo.Seckill;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -41,7 +45,18 @@ class SeckillServiceTest {
 
     @Test
     void executeSeckill() {
-        SeckillExecution seckillExecution = seckillService.executeSeckill(1L,13800001111L,"dfb7c524947b7fd30d1a65dec8ff97a5");
+        SeckillExecution seckillExecution = null;
+        try {
+            seckillExecution = seckillService.executeSeckill(1L,13800002111L,"dfb7c524947b7fd30d1a65dec8ff97a5");
+        } catch (SeckillException e) {
+            if(e.getClass().equals(RepeatKillException.class)){
+                System.out.println("重复秒杀");
+            }else if(e.getClass().equals(SeckillCloseException.class)){
+                System.out.println("秒杀结束");
+            }else{
+                System.out.println("内部异常");
+            }
+        }
         logger.info("seckillExection={}",seckillExecution);
     }
 }

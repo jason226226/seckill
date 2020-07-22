@@ -1,6 +1,9 @@
 package com.example.seckill.dto;
 
 import com.example.seckill.enums.SeckillStatEnum;
+import com.example.seckill.exception.RepeatKillException;
+import com.example.seckill.exception.SeckillCloseException;
+import com.example.seckill.exception.SeckillException;
 import com.example.seckill.pojo.SeckillSuccess;
 import lombok.Data;
 
@@ -18,6 +21,8 @@ public class SeckillExecution {
     private String stateInfo;
 
     private SeckillSuccess seckillSuccess;
+
+    private SeckillException exception;
 
     public SeckillExecution(long seckillId, SeckillStatEnum statEnum, SeckillSuccess seckillSuccess) {
         this.seckillId = seckillId;
