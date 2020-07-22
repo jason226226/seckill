@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="709ecef5-7f0d-4506-bcb9-5a3a11336c44" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f967fbe8-46e4-4cb4-8004-8e86c1ff3ec2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f967fbe8-46e4-4cb4-8004-8e86c1ff3ec2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_12_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_13_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/seckill/controller/SeckillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/seckill/controller/SeckillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/seckill/dao/RedisDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/seckill/dao/RedisDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/seckill/dto/SeckillExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/seckill/dto/SeckillExecution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/seckill/pojo/Seckill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/seckill/pojo/Seckill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/seckill/service/impl/SeckillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/seckill/service/impl/SeckillServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/seckill/dao/cache/RedisDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/seckill/dao/cache/RedisDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/seckill/service/SeckillServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/seckill/service/SeckillServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/seckill/controller/SeckillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/seckill/controller/SeckillController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/seckill/dao/RedisDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/seckill/dao/RedisDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/seckill/dto/SeckillExecution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/seckill/dto/SeckillExecution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/seckill/pojo/Seckill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/seckill/pojo/Seckill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/seckill/service/impl/SeckillServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/seckill/service/impl/SeckillServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/seckill/dao/cache/RedisDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/seckill/dao/cache/RedisDaoTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/seckill/service/SeckillServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/seckill/service/SeckillServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +102,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -297,7 +281,7 @@
       <workItem from="1592396300197" duration="28472000" />
       <workItem from="1593071229882" duration="2721000" />
       <workItem from="1593393254982" duration="946000" />
-      <workItem from="1594695981405" duration="62991000" />
+      <workItem from="1594695981405" duration="63298000" />
     </task>
     <task id="LOCAL-00001" summary="update library">
       <created>1595041940218</created>
@@ -320,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595042129902</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add 本地标记 and redis判断重复秒杀和预减库存">
+      <created>1595384150103</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1595384150103</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +340,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update library" />
-    <option name="LAST_COMMIT_MESSAGE" value="update library" />
+    <MESSAGE value="add 本地标记 and redis判断重复秒杀和预减库存" />
+    <option name="LAST_COMMIT_MESSAGE" value="add 本地标记 and redis判断重复秒杀和预减库存" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="93" key="#Inspections" timestamp="1592471191538">
@@ -399,10 +391,10 @@
       <screen x="0" y="23" width="1440" height="809" />
     </state>
     <state x="458" y="181" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1440.809@0.23.1440.809" timestamp="1595251916897" />
-    <state x="91" y="28" key="CommitChangelistDialog2" timestamp="1595384125417">
+    <state x="91" y="28" key="CommitChangelistDialog2" timestamp="1595384149820">
       <screen x="0" y="23" width="1440" height="809" />
     </state>
-    <state x="91" y="28" key="CommitChangelistDialog2/0.23.1440.809@0.23.1440.809" timestamp="1595384125417" />
+    <state x="91" y="28" key="CommitChangelistDialog2/0.23.1440.809@0.23.1440.809" timestamp="1595384149820" />
     <state x="144" y="93" key="DiffContextDialog" timestamp="1595040424634">
       <screen x="0" y="23" width="1440" height="809" />
     </state>
@@ -487,20 +479,20 @@
       <screen x="0" y="23" width="1440" height="809" />
     </state>
     <state x="349" y="128" key="NewModule_or_Project.wizard/0.23.1440.809@0.23.1440.809" timestamp="1594975984947" />
-    <state x="229" y="23" key="SettingsEditor" timestamp="1594976135566">
+    <state x="229" y="23" key="SettingsEditor" timestamp="1595384249265">
       <screen x="0" y="23" width="1440" height="809" />
     </state>
     <state x="229" y="45" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1592210990412" />
     <state x="229" y="63" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1591712025919" />
-    <state x="229" y="23" key="SettingsEditor/0.23.1440.809@0.23.1440.809" timestamp="1594976135566" />
+    <state x="229" y="23" key="SettingsEditor/0.23.1440.809@0.23.1440.809" timestamp="1595384249265" />
     <state width="200" height="441" key="SqlResolveConfigurable" timestamp="1591883748962">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state width="200" height="441" key="SqlResolveConfigurable/0.23.1440.806@0.23.1440.806" timestamp="1591883748962" />
-    <state x="320" y="167" key="Vcs.Push.Dialog.v2" timestamp="1595042131891">
+    <state x="320" y="167" key="Vcs.Push.Dialog.v2" timestamp="1595384153649">
       <screen x="0" y="23" width="1440" height="809" />
     </state>
-    <state x="320" y="167" key="Vcs.Push.Dialog.v2/0.23.1440.809@0.23.1440.809" timestamp="1595042131891" />
+    <state x="320" y="167" key="Vcs.Push.Dialog.v2/0.23.1440.809@0.23.1440.809" timestamp="1595384153649" />
     <state x="470" y="279" key="cloudConfig.PluginsDialog" timestamp="1593349007061">
       <screen x="0" y="23" width="1440" height="809" />
     </state>
