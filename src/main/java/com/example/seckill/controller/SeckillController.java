@@ -9,6 +9,8 @@ import com.example.seckill.exception.RepeatKillException;
 import com.example.seckill.exception.SeckillCloseException;
 import com.example.seckill.exception.SeckillException;
 import com.example.seckill.pojo.Seckill;
+import com.example.seckill.rabbitmq.MQSender;
+import com.example.seckill.rabbitmq.SeckillMessage;
 import com.example.seckill.service.SeckillService;
 import com.google.common.util.concurrent.RateLimiter;
 import org.slf4j.Logger;
@@ -33,6 +35,8 @@ public class SeckillController implements InitializingBean {
     private SeckillService seckillService;
     @Autowired
     private RedisDao redisDao;
+    @Autowired
+    MQSender sender;
     // 令牌桶实现限流
     RateLimiter rateLimiter = RateLimiter.create(10);
     // 本地变量做标记,true代表秒杀结束
@@ -110,6 +114,10 @@ public class SeckillController implements InitializingBean {
                 return new SeckillResult<>(true, new SeckillExecution(seckillId,SeckillStatEnum.END));
             }
         }
+        SeckillMessage message = new SeckillMessage();
+        message.setPhone(phone);
+        message.setSeckillId(seckillId);
+        sender.sendSeckillMessage(message);
         // 操作数据库执行秒杀逻辑
         try {
             SeckillExecution execution = seckillService.executeSeckill(seckillId, phone, md5);
